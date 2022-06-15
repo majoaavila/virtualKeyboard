@@ -13,6 +13,8 @@
 //this will select every element which the class 'btn'
 const buttons = document.querySelectorAll('.btn');
 
+
+
 //this will select the text area with textArea class
 const textArea = document.querySelector('.textArea');
 
@@ -23,7 +25,7 @@ buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         //  adds' to the textArea, the innerText (<innerText>) of each btn element in the buttons array
         textArea.value += btn.innerText
-        //divide cada elemento del array para poder eliminar el ultimo
+        //split each element of the array so that the last element can be removed.
         textInfo = textArea.value.split('');
         console.log(textInfo)
 
@@ -34,10 +36,10 @@ buttons.forEach(btn => {
 let textInfo = []
 const backspaceBtn = document.querySelector('.backspace');
 const spaceBtn = document.querySelector('.space');
-const mayus = document.querySelector('.mayus');
+const uppercaseBtn = document.querySelector('.uppercase');
 
 backspaceBtn.addEventListener('click', () => {
-    //deletes de last array element
+    //deletes the last array element
     textInfo.pop()
     textArea.value = textInfo.join('')
 });
@@ -49,9 +51,12 @@ spaceBtn.addEventListener('click', () => {
     textArea.value = textInfo.join('')
 });
 
-mayus.addEventListener('click', () => {
-
-})
+//transforms the lowercase letter buttons, into uppercases
+uppercaseBtn.addEventListener('click', () => {
+    buttons.forEach(btn => {
+    btn.classList.toggle('upper');
+    });
+});
 
 
 
